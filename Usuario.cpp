@@ -2,9 +2,8 @@
 
 int idCounter = 0;
 
-Usuario::Usuario()
+Usuario::Usuario() : IdUsuario()
 {
-    this->id = idCounter++;
     this->nome = "NONE";
     this->cpf = "NONE";
     this->telefone = "NONE";
@@ -13,9 +12,8 @@ Usuario::Usuario()
     this->idade = 0;
 }
 
-Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string bairro, int idade)
+Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string bairro, int idade) : IdUsuario()
 {
-    this->id = idCounter++;
     this->nome = nome;
     this->cpf = cpf;
     this->telefone = telefone;
@@ -24,9 +22,8 @@ Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string
     this->idade = idade;
 }
 
-int Usuario::getId()
-{
-    return id;
+int Usuario::getIdUsuario() {
+    return idUsuario;
 }
 
 bool Usuario::isValid() {
@@ -37,7 +34,7 @@ bool Usuario::isValid() {
 }
 
 void Usuario::print () {
-  cout << "ID: " << id <<
+  cout << "ID: " << idUsuario <<
           "\tNome: " << nome <<
           "\tCPF: " << cpf <<
           "\tTel: " << telefone <<

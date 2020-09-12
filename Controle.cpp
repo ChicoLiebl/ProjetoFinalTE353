@@ -3,35 +3,25 @@
 
 #include "Controle.h"
 
-
-Controle::Controle(const char *user_file, const char *animal_file) : userDataFile(user_file), animalDataFile(animal_file)  {
-
+void Controle::addUsuario(Usuario usuario)
+{
+    this->usuarios.push_back(usuario);
 }
 
-void Controle::addUsuario(Usuario usr) {
-    this->usuarios.push_back(usr);
-}
-
-int Controle::findUsuario(int id) {
-    for (int i = 0; i < usuarios.size(); i++)
+std::vector<Usuario>::iterator Controle::findUsuario(int id)
+{
+    std::vector<Usuario>::iterator it;
+    for (it = usuarios.begin(); it != usuarios.end(); it++)
     {
-        if (usuarios[i].getId() == id)
+        if (it->getIdUsuario() == id)
         {
-            return i;
+            return it;
         }
     }
-    return -1;
-}
-
-void Controle::addAnimal(int entrada1, Animal *entrada2) {
-    this->animais.push_back(*entrada2);
+    return it;
 }
 
 void removeUsuario(Usuario entrada) {
-
-}
-
-void removeAnimal(int idUsuario, Animal entrada) {
 
 }
 
@@ -60,10 +50,33 @@ void Controle::loadUserData () {
   file.close();
 }
 
-
 void Controle::listUsuarios () {
   for (int i = 0; i < usuarios.size(); i++){
     usuarios[i].print();
   }
+}
+
+std::vector<Animal>::iterator Controle::findAnimal(int id)
+{
+    std::vector<Animal>::iterator it;
+    for (it = animais.begin(); it != animais.end(); it++)
+    {
+        if (it->getIdAnimal() == id)
+        {
+            return it;
+        }
+    }
+    return it;
+}
+
+void Controle::addAnimal(Animal animal)
+{
+    this->animais.push_back(animal);
+}
+
+void Controle::removeAnimal(Animal animal)
+{
+    std::vector<Animal>::iterator it = this->findAnimal(animal.getIdAnimal());
+    this->animais.erase(it);
 }
 
