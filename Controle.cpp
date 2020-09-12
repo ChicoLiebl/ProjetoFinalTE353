@@ -1,11 +1,5 @@
-#include "Classes.h"
+#include "Controle.h"
 
-int Usuario::idCounter = 0;
-
-Usuario::Usuario(string, string, string, string, string, int)
-{
-    id = idCounter++;
-}
 
 void Controle::addUsuario(Usuario entrada)
 {
@@ -26,7 +20,6 @@ int Controle::findUsuario(int id)
 
 void Controle::addAnimal(int entrada1, Animal *entrada2)
 {
-    entrada2->setIdUsuario(entrada1);
     this->animais.push_back(*entrada2);
 }
 
