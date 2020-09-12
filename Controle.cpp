@@ -3,6 +3,10 @@
 
 #include "Controle.h"
 
+Controle::Controle(const char *user_file, const char *animal_file) : userDataFile(user_file), animalDataFile(animal_file) {
+
+}
+
 void Controle::addUsuario(Usuario usuario)
 {
     this->usuarios.push_back(usuario);
@@ -42,7 +46,7 @@ void Controle::loadUserData () {
     file >> *temp;
     // temp->print();
     if (temp->isValid() != true) {
-      usuarios.back().getId();
+      usuarios.back().getIdUsuario();
       break;
     }
     usuarios.push_back(*temp);
