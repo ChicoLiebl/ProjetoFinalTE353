@@ -22,7 +22,23 @@ Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string
     this->idade = idade;
 }
 
-int Usuario::getIdUsuario()
-{
-    return this->idUsuario;
+int Usuario::getIdUsuario() {
+    return idUsuario;
+}
+
+bool Usuario::isValid() {
+    if (nome == "NONE") {
+      return false;
+    }
+    return true;
+}
+
+void Usuario::print () {
+  cout << "ID: " << idUsuario <<
+          "\tNome: " << nome <<
+          "\tCPF: " << cpf <<
+          "\tTel: " << telefone <<
+          "\tCidade: " << cidade <<
+          "\tBairro: " << bairro <<
+          "\tIdade: " << idade << endl;
 }
