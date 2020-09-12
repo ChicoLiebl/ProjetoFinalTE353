@@ -2,29 +2,27 @@
 
 int idCounter = 0;
 
-Usuario::Usuario()
+Usuario::Usuario() : IdUsuario()
 {
-    id = idCounter++;
-    nome = "NONE";
-    cpf = "NONE";
-    telefone = "NONE";
-    cidade = "NONE";
-    bairro = "NONE";
-    idade = 0;
+    this->nome = "NONE";
+    this->cpf = "NONE";
+    this->telefone = "NONE";
+    this->cidade = "NONE";
+    this->bairro = "NONE";
+    this->idade = 0;
 }
 
-Usuario::Usuario(string entrada1, string entrada2, string entrada3, string entrada4, string entrada5, int entrada6)
+Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string bairro, int idade) : IdUsuario()
 {
-    id = idCounter++;
-    nome = entrada1;
-    cpf = entrada2;
-    telefone = entrada3;
-    cidade = entrada4;
-    bairro = entrada5;
-    idade = entrada6;
+    this->nome = nome;
+    this->cpf = cpf;
+    this->telefone = telefone;
+    this->cidade = cidade;
+    this->bairro = bairro;
+    this->idade = idade;
 }
 
-int Usuario::getId()
+int Usuario::getIdUsuario()
 {
-    return id;
+    return this->idUsuario;
 }

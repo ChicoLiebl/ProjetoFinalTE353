@@ -6,18 +6,17 @@ using namespace std;
 
 Cachorro::Cachorro() : Animal()
 {
-    porte = "NONE";
+    this->porte = "NONE";
 }
 
-Cachorro::Cachorro(string entrada1, string entrada2, string entrada3, int entrada4, bool entrada5, int entrada6,
-string entrada7)
-: Animal(entrada1, entrada2, entrada3, entrada4, entrada5, entrada6)
+Cachorro::Cachorro(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes, string porte)
+: Animal(sexo, raca, cor, idade, castrado, idUsuario, observacoes)
 {
-    porte = entrada7;
+    this->porte = porte;
 }
 
-void Cachorro::cadastrar(int id)
+void Cachorro::cadastrar(int entrada)
 {
-    Animal::cadastrar(id);
+    Animal::cadastrar();
     cout << "Porte: "; cin >> porte;
 }
