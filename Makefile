@@ -1,7 +1,13 @@
 CC      := g++
 INCLUDE := .
 SRCS    := main.cpp Animal.cpp Cachorro.cpp Gato.cpp Controle.cpp Usuario.cpp
-EXE     := main.exe
+
+ifeq ($(OS),Windows_NT)
+	EXE     := main.exe
+else
+	EXE     := ./main.o
+endif
+
 CFLAGS  := -I$(INCLUDE)
 LDLIBS  := ""
 
