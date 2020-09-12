@@ -9,7 +9,7 @@ private:
     bool calmo, agitado;
 public:
     Gato();
-    Gato(string, string, string, int, bool, int, bool, bool);
+    Gato(string, string, string, int, bool, int, string, bool, bool);
     //~Gato();
     void cadastrar(int id);
 };

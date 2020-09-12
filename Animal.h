@@ -13,9 +13,10 @@ protected:
     string sexo, raca, cor;
     int idade;
     bool castrado;
+    string observacoes;
 public:
     Animal();
-    Animal(string, string, string, int, bool, int);
+    Animal(string, string, string, int, bool, int, string);
     //~Animal();
     void cadastrar();
     int getIdAnimal();

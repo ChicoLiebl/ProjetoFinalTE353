@@ -11,7 +11,7 @@ private:
     string porte;
 public:
     Cachorro();
-    Cachorro(string, string, string, int, bool, int, string);
+    Cachorro(string, string, string, int, bool, int, string, string);
     //~Cachorro();
     void cadastrar(int id);
 };

@@ -11,9 +11,10 @@ Animal::Animal() : IdAnimal()
     this->idade = 0;
     this->castrado = false;
     this->idUsuario = 0;
+    this->observacoes = "NONE";
 }
 
-Animal::Animal(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario) : IdAnimal()
+Animal::Animal(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes) : IdAnimal()
 {
     this->sexo = sexo;
     this->raca = raca;
@@ -21,6 +22,7 @@ Animal::Animal(string sexo, string raca, string cor, int idade, bool castrado, i
     this->idade = idade;
     this->castrado = castrado;
     this->idUsuario = idUsuario;
+    this->observacoes = observacoes;
 }
 
 void Animal::cadastrar()
