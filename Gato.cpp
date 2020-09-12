@@ -6,21 +6,20 @@ using namespace std;
 
 Gato::Gato() : Animal()
 {
-    calmo = false;
-    arisco = false;
+    this->calmo = false;
+    this->agitado = false;
 }
 
-Gato::Gato(string entrada1, string entrada2, string entrada3, int entrada4, bool entrada5, int entrada6, 
-bool entrada7, bool entrada8)
-: Animal(entrada1, entrada2, entrada3, entrada4, entrada5, entrada6)
+Gato::Gato(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, bool calmo, bool agitado)
+: Animal(sexo, raca, cor, idade, castrado, idUsuario)
 {
-    calmo = entrada7;
-    arisco = entrada8;
+    this->calmo = calmo;
+    this->agitado = agitado;
 }
 
-void Gato::cadastrar(int id)
+void Gato::cadastrar(int entrada)
 {
-    Animal::cadastrar(id);
+    Animal::cadastrar();
     cout << "É calmo? "; cin >> calmo;
-    cout << "É arisco? "; cin >> arisco;
+    cout << "É agitado? "; cin >> agitado;
 }

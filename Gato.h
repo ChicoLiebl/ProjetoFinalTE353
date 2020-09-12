@@ -6,7 +6,7 @@
 class Gato : public Animal
 {
 private:
-    bool calmo, arisco;
+    bool calmo, agitado;
 public:
     Gato();
     Gato(string, string, string, int, bool, int, bool, bool);

@@ -16,14 +16,14 @@ class Controle
 {
 private:
     vector<Usuario> usuarios;
-    list<Animal> animais;
-    int findUsuario(int id);
+    vector<Animal> animais;
+    std::vector<Usuario>::iterator findUsuario(int id);
+    std::vector<Animal>::iterator findAnimal(int id);
 public:
     Controle();
     void addUsuario(Usuario entrada);
-    void addAnimal(int idUsuario, Animal *entrada);
-    void removeUsuario(Usuario entrada);
-    void removeAnimal(int idUsuario, Animal entrada);
+    void addAnimal(Animal entrada);
+    void removeAnimal(Animal entrada);
 };
 
 #endif // CONTROLE_H

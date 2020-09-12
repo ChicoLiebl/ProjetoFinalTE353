@@ -1,22 +1,24 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
+#include "IdAnimal.h"
+#include "IdUsuario.h"
 #include <string>
 
 using namespace std;
 
-class Animal
+class Animal : public IdAnimal, IdUsuario
 {
-private:
+protected:
     string sexo, raca, cor;
     int idade;
     bool castrado;
-    int idUsuario;
 public:
     Animal();
     Animal(string, string, string, int, bool, int);
     //~Animal();
-    void cadastrar(int id);
+    void cadastrar();
+    int getIdAnimal();
 };
 
 #endif // ANIMAL_H

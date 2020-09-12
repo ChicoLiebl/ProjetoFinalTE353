@@ -1,34 +1,43 @@
 #include "Controle.h"
 
-
-void Controle::addUsuario(Usuario entrada)
+void Controle::addUsuario(Usuario usuario)
 {
-    this->usuarios.push_back(entrada);
+    this->usuarios.push_back(usuario);
 }
 
-int Controle::findUsuario(int id)
+std::vector<Usuario>::iterator Controle::findUsuario(int id)
 {
-    for (int i = 0; i < usuarios.size(); i++)
+    std::vector<Usuario>::iterator it;
+    for (it = usuarios.begin(); it != usuarios.end(); it++)
     {
-        if (usuarios[i].getId() == id)
+        if (it->getIdUsuario() == id)
         {
-            return i;
+            return it;
         }
     }
-    return -1;
+    return it;
 }
 
-void Controle::addAnimal(int entrada1, Animal *entrada2)
+std::vector<Animal>::iterator Controle::findAnimal(int id)
 {
-    this->animais.push_back(*entrada2);
+    std::vector<Animal>::iterator it;
+    for (it = animais.begin(); it != animais.end(); it++)
+    {
+        if (it->getIdAnimal() == id)
+        {
+            return it;
+        }
+    }
+    return it;
 }
 
-void removeUsuario(Usuario entrada)
+void Controle::addAnimal(Animal animal)
 {
-
+    this->animais.push_back(animal);
 }
 
-void removeAnimal(int idUsuario, Animal entrada)
+void Controle::removeAnimal(Animal animal)
 {
-
+    std::vector<Animal>::iterator it = this->findAnimal(animal.getIdAnimal());
+    this->animais.erase(it);
 }
