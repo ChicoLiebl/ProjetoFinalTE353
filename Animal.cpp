@@ -3,25 +3,26 @@
 
 using namespace std;
 
-Animal::Animal() : IdAnimal()
-{
+int idA = 0;
+
+Animal::Animal() {
+    this->idAnimal = idA++;
     this->sexo = "NONE";
     this->raca = "NONE";
     this->cor = "NONE";
     this->idade = 0;
     this->castrado = false;
-    this->idUsuario = 0;
     this->observacoes = "NONE";
 }
 
-Animal::Animal(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes) : IdAnimal()
+Animal::Animal(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes)
 {
+    this->idAnimal = idA++;
     this->sexo = sexo;
     this->raca = raca;
     this->cor = cor;
     this->idade = idade;
     this->castrado = castrado;
-    this->idUsuario = idUsuario;
     this->observacoes = observacoes;
 }
 
@@ -39,4 +40,21 @@ void Animal::cadastrar()
 int Animal::getIdAnimal()
 {
     return this->idAnimal;
+}
+
+bool Animal::isValid() {
+    if (sexo == "NONE") {
+      return false;
+    }
+    return true;
+}
+
+void Animal::print() {
+  cout << "\tidAnimal: " << idAnimal
+       << "\tsexo: " << sexo
+       << "\traca: " << raca
+       << "\tcor: " << cor
+       << "\tidade: " << idade
+       << "\tcastrado: " << castrado
+       << "\tobservacoes: " << observacoes << endl;
 }
