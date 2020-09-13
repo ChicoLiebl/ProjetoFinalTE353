@@ -3,6 +3,11 @@
 
 #include "Controle.h"
 
+Controle::Controle(const char *user_file, const char *caes_file, const char *gatos_file) : 
+userDataFile(user_file), caesDataFile(caes_file), gatosDataFile(gatos_file) {
+
+}
+
 void Controle::addUsuario(Usuario usuario)
 {
     this->usuarios.push_back(usuario);
@@ -25,41 +30,9 @@ void removeUsuario(Usuario entrada) {
 
 }
 
-void Controle::saveUserData () {
-  ofstream file;
-  file.open(userDataFile);
-  for (int i = 0; i < usuarios.size(); i++) {
-    file << usuarios[i];
-  }
-  file.close();
-}
-
-void Controle::loadUserData () {
-  ifstream file;
-  file.open(userDataFile);
-  do {
-    Usuario *temp = new Usuario();
-    file >> *temp;
-    // temp->print();
-    if (temp->isValid() != true) {
-      usuarios.back().getId();
-      break;
-    }
-    usuarios.push_back(*temp);
-  } while (1);
-  file.close();
-}
-
-void Controle::listUsuarios () {
-  for (int i = 0; i < usuarios.size(); i++){
-    usuarios[i].print();
-  }
-}
-
-std::vector<Animal>::iterator Controle::findAnimal(int id)
-{
-    std::vector<Animal>::iterator it;
-    for (it = animais.begin(); it != animais.end(); it++)
+std::vector<Cachorro>::iterator Controle::findCao(int id) {
+    std::vector<Cachorro>::iterator it;
+    for (it = caes.begin(); it != caes.end(); it++)
     {
         if (it->getIdAnimal() == id)
         {
@@ -69,14 +42,102 @@ std::vector<Animal>::iterator Controle::findAnimal(int id)
     return it;
 }
 
-void Controle::addAnimal(Animal animal)
-{
-    this->animais.push_back(animal);
+std::vector<Gato>::iterator Controle::findGato(int id) {
+    std::vector<Gato>::iterator it;
+    for (it = gatos.begin(); it != gatos.end(); it++)
+    {
+        if (it->getIdAnimal() == id)
+        {
+            return it;
+        }
+    }
+    return it;
 }
 
-void Controle::removeAnimal(Animal animal)
-{
-    std::vector<Animal>::iterator it = this->findAnimal(animal.getIdAnimal());
-    this->animais.erase(it);
+void Controle::addCao(Cachorro cao) {
+    this->caes.push_back(cao);
+}
+
+void Controle::removeCao(Cachorro cao) {
+    std::vector<Cachorro>::iterator it = this->findCao(cao.getIdAnimal());
+    this->caes.erase(it);
+}
+
+void Controle::addGato(Gato gato) {
+    this->gatos.push_back(gato);
+}
+
+void Controle::removeGato(Gato gato) {
+    std::vector<Gato>::iterator it = this->findGato(gato.getIdAnimal());
+    this->gatos.erase(it);
+}
+
+template <class T>
+void Controle::saveData (std::vector<T> & vect, std::string data_file) {
+  ofstream file;
+  file.open(data_file);
+  for (int i = 0; i < vect.size(); i++) {
+    file << vect[i];
+  }
+  file.close();
+}
+
+template <class T>
+void Controle::loadData(std::vector<T> & vect, std::string data_file) {
+  // allocator<T> A;
+  ifstream file;
+  file.open(data_file);
+  do {
+    T *temp = new T();
+    file >> *temp;
+    if (temp->isValid() != true) {
+      break;
+    }
+    vect.push_back(*temp);
+  } while (1);
+  file.close();
+}
+
+template <class T>
+void Controle::listData(std::vector<T> & vect) {
+  for (int i = 0; i < vect.size(); i++){
+    vect[i].print();
+  }
+}
+
+void Controle::saveUserData () {
+  saveData(usuarios, userDataFile);
+}
+
+void Controle::loadUserData () {
+  loadData(usuarios, userDataFile);
+}
+
+void Controle::listUsuarios () {
+  listData(usuarios);
+}
+
+void Controle::saveCaesData () {
+  saveData(caes, caesDataFile);
+}
+
+void Controle::loadCaesData () {
+  loadData(caes, caesDataFile);
+}
+
+void Controle::listCaes () {
+  listData(caes);
+}
+
+void Controle::saveGatosData () {
+  saveData(gatos, gatosDataFile);
+}
+
+void Controle::loadGatosData () {
+  loadData(gatos, gatosDataFile);
+}
+
+void Controle::listGatos () {
+  listData(gatos);
 }
 

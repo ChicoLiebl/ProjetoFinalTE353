@@ -4,13 +4,13 @@
 
 using namespace std;
 
-Cachorro::Cachorro() : Animal()
+Cachorro::Cachorro() : Animal(), IdUsuario()
 {
     this->porte = "NONE";
 }
 
 Cachorro::Cachorro(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes, string porte)
-: Animal(sexo, raca, cor, idade, castrado, idUsuario, observacoes)
+: Animal(sexo, raca, cor, idade, castrado, idUsuario, observacoes), IdUsuario()
 {
     this->porte = porte;
 }

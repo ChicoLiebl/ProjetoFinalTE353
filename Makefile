@@ -1,6 +1,6 @@
 CC      := g++
 INCLUDE := .
-SRCS    := main.cpp Animal.cpp Cachorro.cpp Gato.cpp Controle.cpp Usuario.cpp IdAnimal.cpp IdUsuario.cpp
+SRCS    := main.cpp Animal.cpp Cachorro.cpp Gato.cpp Controle.cpp Usuario.cpp IdUsuario.cpp
 
 ifeq ($(OS),Windows_NT)
 	EXE     := main.exe
@@ -8,7 +8,7 @@ else
 	EXE     := ./main.o
 endif
 
-CFLAGS  := -I$(INCLUDE)
+CFLAGS  := -std=c++11 -I$(INCLUDE)
 LDLIBS  := ""
 
 .PHONY: all run clean

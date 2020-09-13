@@ -12,26 +12,49 @@
 
 using namespace std;
 
-class Controle
-{
+class Controle {
 private:
     std::string userDataFile;
-    std::string animalDataFile;
+    std::string caesDataFile;
+    std::string gatosDataFile;
     vector<Usuario> usuarios;
-    vector<Animal> animais;
+    vector<Cachorro> caes;
+    vector<Gato> gatos;
     std::vector<Usuario>::iterator findUsuario(int id);
-    std::vector<Animal>::iterator findAnimal(int id);
+    std::vector<Cachorro>::iterator findCao(int id);
+    std::vector<Gato>::iterator findGato(int id);
+    
+    template <class T>
+    void saveData(std::vector<T> & vect, std::string data_file);
+    
+    template <class T>
+    void loadData(std::vector<T> & vect, std::string data_file);
+    
+    template <class T>
+    void listData(std::vector<T> & vect);
 public:
-    Controle(const char *user_file = "UserData.txt", const char *animal_file = "AnimalData.txt");
+    Controle(const char *user_file = "UserData.txt", const char *caes_file = "CaesData.txt", const char *gatos_file = "GatosData.txt");
     void addUsuario(Usuario entrada);
     void removeUsuario(Usuario entrada);
+
+    void addCao(Cachorro cao);
+    void removeCao(Cachorro cao);
+
+    void addGato(Gato gato);
+    void removeGato(Gato gato);
 
     void listUsuarios();
     void saveUserData ();
     void loadUserData ();
 
-    void addAnimal(Animal entrada);
-    void removeAnimal(Animal entrada);
+    void listCaes();
+    void saveCaesData ();
+    void loadCaesData ();
+
+    void listGatos();
+    void saveGatosData ();
+    void loadGatosData ();
+
 };
 
 #endif // CONTROLE_H

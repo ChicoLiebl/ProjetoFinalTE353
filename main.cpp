@@ -6,11 +6,19 @@
 
 using namespace std;
 
-int main()
-{
-    cout << "Hello World!" << endl;
-    Usuario b("Breno", "7807963905", "988426085", "Curitiba", "Santa Felicidade", 20);
-    //Gato n("femea", "sem raca", "preto", 50, true, b.getId());
+void add_user (Controle* ctrl) {
+  Usuario user0("Fulano", "000.000.000-00", "(41)99999-9999", "Curitiba", "Centro", 26);
+  ctrl->addUsuario(user0);
+}
 
+int main() { 
+    Controle dataBase;
+    dataBase.loadUserData();
+
+    for (int i =0; i < 10; i++) {
+      add_user(&dataBase);
+    }
+    dataBase.listUsuarios();
+    dataBase.saveUserData();
     return 0;
 }
