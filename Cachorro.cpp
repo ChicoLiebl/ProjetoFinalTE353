@@ -20,7 +20,7 @@ void Cachorro::cadastrar(int entrada)
     this->idUsuario = entrada;
     Animal::cadastrar();
     cout << "Porte: ";
-    cin.ignore();
+    //cin.ignore();
     getline(cin, porte);
     cout << "\n";
 }

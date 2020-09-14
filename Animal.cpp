@@ -30,16 +30,15 @@ Animal::Animal(string sexo, string raca, string cor, string castrado, int idade,
 void Animal::cadastrar()
 {
     cout << "Insira os dados do animal:\n" << endl;
-    cout << "Sexo: "; cin >> sexo;
     cin.ignore();
+    cout << "Sexo: "; getline(cin, sexo);
     cout << "Raca: "; getline(cin, raca);
     cout << "Cor: "; getline(cin, cor);
     cout << "Idade [meses]: "; cin >> idade;
-    cout << "castrado? ['sim' ou 'nao']"; cin >> castrado;
+    cout << "castrado? ['sim' ou 'nao'] "; cin >> castrado;
     if(castrado == "sim") castrado = "castrado";
     else castrado == "nao castrado";
     cout << "Observacoes: ";
-    cin.ignore();
     getline(cin, observacoes);
 }
 

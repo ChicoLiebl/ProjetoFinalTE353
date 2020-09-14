@@ -1,8 +1,8 @@
 #ifndef ANIMAL_H
 #define ANIMAL_H
 
+#include "String.h"
 #include "IdUsuario.h"
-#include <string>
 
 using namespace std;
 
@@ -10,9 +10,9 @@ class Animal
 {
 protected:
     int idAnimal;
-    string sexo, raca, cor, castrado;
+    String sexo, raca, cor, castrado;
     int idade;
-    string observacoes;
+    String observacoes;
 public:
     Animal();
     Animal(string, string, string, string, int, int, string);

@@ -4,6 +4,7 @@
 #include "Cachorro.h"
 #include "Controle.h"
 #include "utils.h"
+#include "String.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ int main()
   dataBase.loadGatosData();
 
   int escolha, escolhaAnimal;
-  string cpfEntrada;
+  int cpfEntrada;
   Usuario user;
   Gato user_gato;
   Cachorro user_cachorro;
@@ -32,10 +33,9 @@ int main()
     {
     case 1:
       cout << "Digite seu CPF: ";
-      cin.ignore();
-      getline(cin, cpfEntrada);
+      cin >> cpfEntrada;
       user = dataBase.findUsuarioCPF(cpfEntrada);
-      if(user.getIdCpf() != cpfEntrada) return 0;
+      if(user.getCpf() != cpfEntrada) return 0;
       break;
     case 2:
       user.iniciar();
@@ -68,8 +68,8 @@ int main()
         if(escolhaAnimal == 1) dataBase.findCao(IdEscolha)->print();
         else if(escolhaAnimal == 2) dataBase.findGato(IdEscolha)->print();
         cout << "\nDados do usuario que cadastrou esse animal:\n" << endl;
-        if(escolhaAnimal == 1) (dataBase.findUsuarioID(dataBase.findGato(IdEscolha)->getIdUsuario())).print();
-        else if(escolhaAnimal == 2) (dataBase.findUsuarioID(dataBase.findCao(IdEscolha)->getIdUsuario())).print();
+        if(escolhaAnimal == 1) (dataBase.findUsuarioID(dataBase.findCao(IdEscolha)->getIdUsuario())).print();
+        else if(escolhaAnimal == 2) (dataBase.findUsuarioID(dataBase.findGato(IdEscolha)->getIdUsuario())).print();
 
         //dataBase.findUsuario(IdEscolha)->;
       }
@@ -107,6 +107,6 @@ int main()
 }
 
 void add_user (Controle* ctrl) {
-  Usuario user0("Fulano", "000.000.000-00", "(41)99999-9999", "Curitiba", "Centro", 26);
+  Usuario user0("Fulano", "(41)99999-9999", "Curitiba", "Centro", 26, 00000000000);
   ctrl->addUsuario(user0);
 }

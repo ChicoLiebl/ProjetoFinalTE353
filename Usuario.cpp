@@ -5,20 +5,20 @@ int idCounter = 0;
 Usuario::Usuario() : IdUsuario()
 {
     this->nome = "NONE";
-    this->cpf = "NONE";
     this->telefone = "NONE";
     this->cidade = "NONE";
     this->bairro = "NONE";
     this->idade = 0;
 }
 
-Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string bairro, int idade) : IdUsuario()
+Usuario::Usuario(string nome, string telefone, string cidade, string bairro, int cpf, int idade) : IdUsuario()
 {
     this->nome = nome;
-    this->cpf = cpf;
     this->telefone = telefone;
     this->cidade = cidade;
     this->bairro = bairro;
+    this->cpf = cpf;
+    this->cpf = 0;
     this->idade = idade;
 }
 
@@ -27,11 +27,13 @@ void Usuario::iniciar()
     cout << "Insira seus dados: \n\n";
     cin.ignore();
     cout << "Nome: "; getline(cin, this->nome);
-    cout << "CPF: "; getline(cin, this->cpf);
+    cout << "CPF: "; cin >> this->cpf;
+    cin.ignore();
     cout << "Telefone: "; getline(cin, this->telefone);
     cout << "Cidade: "; getline(cin, this->cidade);
     cout << "Bairro: "; getline(cin, this->bairro);
-    cout << "Idade: "; cin >> idade;
+    cout << "Idade: "; cin >> this->idade;
+    cin.ignore();
 
     cout << "\nUsuario cadastrado com sucesso!\n" << endl;
 }
@@ -40,7 +42,7 @@ int Usuario::getIdUsuario() {
     return idUsuario;
 }
 
-string Usuario::getIdCpf()
+int Usuario::getCpf()
 {
     return cpf;
 }
