@@ -1,4 +1,5 @@
 #include "Animal.h"
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -11,11 +12,11 @@ Animal::Animal() {
     this->raca = "NONE";
     this->cor = "NONE";
     this->idade = 0;
-    this->castrado = false;
+    this->castrado = "NONE";
     this->observacoes = "NONE";
 }
 
-Animal::Animal(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes)
+Animal::Animal(string sexo, string raca, string cor, string castrado, int idade, int idUsuario, string observacoes)
 {
     this->idAnimal = idA++;
     this->sexo = sexo;
@@ -31,10 +32,15 @@ void Animal::cadastrar()
     cout << "Insira os dados do animal:\n" << endl;
     cout << "Sexo: "; cin >> sexo;
     cin.ignore();
-    cout << "Raça: "; getline(cin, raca);
+    cout << "Raca: "; getline(cin, raca);
     cout << "Cor: "; getline(cin, cor);
     cout << "Idade [meses]: "; cin >> idade;
-    cout << "É castrado? "; cin >> castrado;
+    cout << "castrado? ['sim' ou 'nao']"; cin >> castrado;
+    if(castrado == "sim") castrado = "castrado";
+    else castrado == "nao castrado";
+    cout << "Observacoes: ";
+    cin.ignore();
+    getline(cin, observacoes);
 }
 
 int Animal::getIdAnimal()
@@ -50,11 +56,11 @@ bool Animal::isValid() {
 }
 
 void Animal::print() {
-  cout << "\tidAnimal: " << idAnimal
+  cout << "ID: " << idAnimal
        << "\tsexo: " << sexo
        << "\traca: " << raca
        << "\tcor: " << cor
        << "\tidade: " << idade
        << "\tcastrado: " << castrado
-       << "\tobservacoes: " << observacoes << endl;
+       << "\tobservacoes: " << observacoes;
 }

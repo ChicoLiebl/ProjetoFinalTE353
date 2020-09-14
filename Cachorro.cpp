@@ -9,8 +9,8 @@ Cachorro::Cachorro() : Animal(), IdUsuario()
     this->porte = "NONE";
 }
 
-Cachorro::Cachorro(string sexo, string raca, string cor, int idade, bool castrado, int idUsuario, string observacoes, string porte)
-: Animal(sexo, raca, cor, idade, castrado, idUsuario, observacoes), IdUsuario()
+Cachorro::Cachorro(string sexo, string raca, string cor, string castrado, int idade, int idUsuario, string observacoes, string porte)
+: Animal(sexo, raca, cor, castrado, idade, idUsuario, observacoes), IdUsuario()
 {
     this->porte = porte;
 }
@@ -19,4 +19,11 @@ void Cachorro::cadastrar(int entrada)
 {
     Animal::cadastrar();
     cout << "Porte: "; cin >> porte;
+    cout << "\n";
+}
+
+void Cachorro::print()
+{
+    Animal::print();
+    cout << "\tporte: " << porte << endl;
 }

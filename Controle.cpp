@@ -10,20 +10,21 @@ userDataFile(user_file), caesDataFile(caes_file), gatosDataFile(gatos_file) {
 
 void Controle::addUsuario(Usuario usuario)
 {
-    this->usuarios.push_back(usuario);
+  this->usuarios.push_back(usuario);
 }
 
-std::vector<Usuario>::iterator Controle::findUsuario(int id)
+Usuario Controle::findUsuario(string cpf)
 {
-    std::vector<Usuario>::iterator it;
-    for (it = usuarios.begin(); it != usuarios.end(); it++)
+  for (int i = 0; i != usuarios.size(); i++)
+  {
+    if (usuarios[i].getIdCpf().compare(cpf) == 0)
     {
-        if (it->getIdUsuario() == id)
-        {
-            return it;
-        }
+        return usuarios[i];
     }
-    return it;
+  }
+  cout << "Usuario nao cadastrado!\n" << endl;
+  system("pause");
+  system("cls");
 }
 
 void removeUsuario(Usuario entrada) {
@@ -42,7 +43,8 @@ std::vector<Cachorro>::iterator Controle::findCao(int id) {
     return it;
 }
 
-std::vector<Gato>::iterator Controle::findGato(int id) {
+std::vector<Gato>::iterator Controle::findGato(int id)
+{
     std::vector<Gato>::iterator it;
     for (it = gatos.begin(); it != gatos.end(); it++)
     {

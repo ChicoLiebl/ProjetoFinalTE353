@@ -8,12 +8,13 @@
 class Gato : public Animal, IdUsuario
 {
 private:
-    bool calmo, agitado;
+    string calmo, agitado;
 public:
     Gato();
-    Gato(string, string, string, int, bool, int, string, bool, bool);
+    Gato(string, string, string, string, int, int, string, string, string);
     //~Gato();
     void cadastrar(int id);
+    void print();
     
     friend std::ostream & operator << (std::ostream &out, const Gato & obj) {
       out << obj.idUsuario << "\t" << obj.idAnimal << "\t"

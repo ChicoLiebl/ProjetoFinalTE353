@@ -16,10 +16,11 @@ public:
     Usuario();
     Usuario(string, string, string, string, string, int);
     //~Usuario();
-    int getId();
+    void iniciar();
     void print();
     bool isValid();
 
+    string getIdCpf();
     int getIdUsuario();
 
     friend std::ostream & operator << (std::ostream &out, const Usuario & obj) {

@@ -14,9 +14,10 @@ private:
     string porte;
 public:
     Cachorro();
-    Cachorro(string, string, string, int, bool, int, string, string);
+    Cachorro(string, string, string, string, int, int, string, string);
     //~Cachorro();
     void cadastrar(int id);
+    void print();
     friend std::ostream & operator << (std::ostream &out, const Cachorro & obj) {
       out << obj.idUsuario << "\t" << obj.idAnimal << "\t"
           << obj.sexo << "\t" << obj.raca << "\t"

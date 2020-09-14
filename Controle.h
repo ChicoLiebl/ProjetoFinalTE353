@@ -20,9 +20,6 @@ private:
     vector<Usuario> usuarios;
     vector<Cachorro> caes;
     vector<Gato> gatos;
-    std::vector<Usuario>::iterator findUsuario(int id);
-    std::vector<Cachorro>::iterator findCao(int id);
-    std::vector<Gato>::iterator findGato(int id);
     
     template <class T>
     void saveData(std::vector<T> & vect, std::string data_file);
@@ -34,6 +31,11 @@ private:
     void listData(std::vector<T> & vect);
 public:
     Controle(const char *user_file = "UserData.txt", const char *caes_file = "CaesData.txt", const char *gatos_file = "GatosData.txt");
+    
+    Usuario findUsuario(string cpf);
+    std::vector<Cachorro>::iterator findCao(int id);
+    std::vector<Gato>::iterator findGato(int id);
+    
     void addUsuario(Usuario entrada);
     void removeUsuario(Usuario entrada);
 
