@@ -11,7 +11,7 @@ using namespace std;
 class Cachorro : public Animal, IdUsuario
 {
 private:
-    string porte;
+    String porte;
 public:
     Cachorro();
     Cachorro(string, string, string, string, int, int, string, string);

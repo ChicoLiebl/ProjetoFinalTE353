@@ -2,25 +2,25 @@
 #define USUARIO_H
 
 #include "IdUsuario.h"
+#include "String.h"
 #include <iostream>
-#include <string>
 
 using namespace std;
 
 class Usuario : public IdUsuario
 {
 protected:
-    string nome, cpf, telefone, cidade, bairro;
-    int idade;
+    String nome, telefone, cidade, bairro;
+    int idade, cpf;
 public:
     Usuario();
-    Usuario(string, string, string, string, string, int);
+    Usuario(string, string, string, string, int, int);
     //~Usuario();
     void iniciar();
     void print();
     bool isValid();
 
-    string getIdCpf();
+    int getCpf();
     int getIdUsuario();
 
     friend std::ostream & operator << (std::ostream &out, const Usuario & obj) {

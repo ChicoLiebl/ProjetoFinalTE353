@@ -8,7 +8,7 @@
 class Gato : public Animal, IdUsuario
 {
 private:
-    string calmo, agitado;
+    String calmo, agitado;
 public:
     Gato();
     Gato(string, string, string, string, int, int, string, string, string);

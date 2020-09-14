@@ -1,4 +1,4 @@
-#include <cstring>
+#include <string.h>
 #include <fstream>
 
 #include "Controle.h"
@@ -13,11 +13,11 @@ void Controle::addUsuario(Usuario usuario)
   this->usuarios.push_back(usuario);
 }
 
-Usuario Controle::findUsuarioCPF(string cpf)
+Usuario Controle::findUsuarioCPF(int cpf)
 {
   for (int i = 0; i != usuarios.size(); i++)
   {
-    if (usuarios[i].getIdCpf().compare(cpf) == 0)
+    if (usuarios[i].getCpf() == cpf)
     {
         return usuarios[i];
     }
@@ -100,14 +100,15 @@ void Controle::loadData(std::vector<T> & vect, std::string data_file) {
   // allocator<T> A;
   ifstream file;
   file.open(data_file);
-  do {
+  if (!file.is_open()) return;
+  while (file.peek() != EOF) {
     T *temp = new T();
     file >> *temp;
     if (temp->isValid() != true) {
       break;
     }
     vect.push_back(*temp);
-  } while (1);
+  }
   file.close();
 }
 
