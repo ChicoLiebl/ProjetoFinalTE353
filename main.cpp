@@ -18,8 +18,9 @@ int main()
   dataBase.loadCaesData();
   dataBase.loadGatosData();
 
-  int escolha, escolhaAnimal;
+  int escolha, escolhaAnimal, idEscolha;
   int cpfEntrada;
+  
   Usuario user;
   Gato user_gato;
   Cachorro user_cachorro;
@@ -61,17 +62,16 @@ int main()
       cin >> escolha;
       if(escolha == 1)
       {
-        int IdEscolha;
-        cout << "Digite o ID do animal: "; cin >> IdEscolha;
+        cout << "Digite o ID do animal: "; cin >> idEscolha;
         clear_screen();
         cout << "Dados do animal:\n" << endl;
-        if(escolhaAnimal == 1) dataBase.findCao(IdEscolha)->print();
-        else if(escolhaAnimal == 2) dataBase.findGato(IdEscolha)->print();
+        if(escolhaAnimal == 1) dataBase.findCao(idEscolha)->print();
+        else if(escolhaAnimal == 2) dataBase.findGato(idEscolha)->print();
         cout << "\nDados do usuario que cadastrou esse animal:\n" << endl;
-        if(escolhaAnimal == 1) (dataBase.findUsuarioID(dataBase.findCao(IdEscolha)->getIdUsuario())).print();
-        else if(escolhaAnimal == 2) (dataBase.findUsuarioID(dataBase.findGato(IdEscolha)->getIdUsuario())).print();
+        if(escolhaAnimal == 1) (dataBase.findUsuarioID(dataBase.findCao(idEscolha)->getIdUsuario())).print();
+        else if(escolhaAnimal == 2) (dataBase.findUsuarioID(dataBase.findGato(idEscolha)->getIdUsuario())).print();
 
-        //dataBase.findUsuario(IdEscolha)->;
+        //dataBase.findUsuario(idEscolha)->;
       }
       system("pause");
       break;
@@ -91,6 +91,25 @@ int main()
         dataBase.saveGatosData();
       }
       break;
+    case 3:
+      cout << "Deseja remover algum?   (1)Sim (2)Nao\n\n " << endl;
+      dataBase.printCaesIdUsuario(user.getIdUsuario());
+      dataBase.printGatosIdUsuario(user.getIdUsuario());
+      cin >> escolha;
+      if(escolha == 1)
+      {
+        cout << "Cachorro ou gato?\n\n(1) Cachorro\n(2) Gato" << endl;
+        cin >> escolhaAnimal;
+        cout << "\nDigite ID do animal a ser removido: ";
+        cin >> idEscolha;
+        if(escolhaAnimal == 1) dataBase.removeCao(idEscolha);
+        else if(escolhaAnimal == 2) dataBase.removeGato(idEscolha);
+        dataBase.saveCaesData();
+        dataBase.saveGatosData();
+        clear_screen();
+        cout << "ANIMAL REMOVIDO COM SUCESSO!" << endl;
+      }
+      system("pause");
     default:
       break;
     }

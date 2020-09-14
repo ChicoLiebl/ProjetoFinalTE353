@@ -33,7 +33,7 @@ void Gato::print()
 {
     Animal::print();
     cout <<"\tcalmo? " << calmo
-         << "\tagitado? " << agitado << endl;
+         << "\tagitado? " << agitado << "\t(GATO)\n\n" << endl;
 }
 
 int Gato::getIdUsuario()

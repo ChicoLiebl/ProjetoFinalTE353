@@ -54,6 +54,17 @@ std::vector<Cachorro>::iterator Controle::findCao(int id) {
     return it;
 }
 
+void Controle::printCaesIdUsuario(int id) {
+    std::vector<Cachorro>::iterator it;
+    for (it = caes.begin(); it != caes.end(); it++)
+    {
+        if (it->getIdUsuario() == id)
+        {
+            it->print();
+        }
+    }
+}
+
 std::vector<Gato>::iterator Controle::findGato(int id)
 {
     std::vector<Gato>::iterator it;
@@ -67,12 +78,24 @@ std::vector<Gato>::iterator Controle::findGato(int id)
     return it;
 }
 
+void Controle::printGatosIdUsuario(int id)
+{
+    std::vector<Gato>::iterator it;
+    for (it = gatos.begin(); it != gatos.end(); it++)
+    {
+        if (it->getIdUsuario() == id)
+        {
+            it->print();
+        }
+    }
+}
+
 void Controle::addCao(Cachorro cao) {
     this->caes.push_back(cao);
 }
 
-void Controle::removeCao(Cachorro cao) {
-    std::vector<Cachorro>::iterator it = this->findCao(cao.getIdAnimal());
+void Controle::removeCao(int id) {
+    std::vector<Cachorro>::iterator it = this->findCao(id);
     this->caes.erase(it);
 }
 
@@ -80,15 +103,15 @@ void Controle::addGato(Gato gato) {
     this->gatos.push_back(gato);
 }
 
-void Controle::removeGato(Gato gato) {
-    std::vector<Gato>::iterator it = this->findGato(gato.getIdAnimal());
+void Controle::removeGato(int id) {
+    std::vector<Gato>::iterator it = this->findGato(id);
     this->gatos.erase(it);
 }
 
 template <class T>
 void Controle::saveData (std::vector<T> & vect, std::string data_file) {
   ofstream file;
-  file.open(data_file);
+  file.open(data_file.c_str());
   for (int i = 0; i < vect.size(); i++) {
     file << vect[i];
   }

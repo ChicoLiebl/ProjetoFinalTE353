@@ -1,0 +1,4 @@
+0	1	macho	"vira lata"	preto	2	
+sim	nada	nao	agitado
+0	2	a	a	a	1	
+sim	aa	nao	agitado

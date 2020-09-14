@@ -34,17 +34,19 @@ public:
     
     Usuario findUsuarioCPF(int cpf);
     Usuario findUsuarioID(int id);
+    void printCaesIdUsuario(int id);
     std::vector<Cachorro>::iterator findCao(int id);
+    void printGatosIdUsuario(int id);
     std::vector<Gato>::iterator findGato(int id);
     
     void addUsuario(Usuario entrada);
     void removeUsuario(Usuario entrada);
 
     void addCao(Cachorro cao);
-    void removeCao(Cachorro cao);
+    void removeCao(int id);
 
     void addGato(Gato gato);
-    void removeGato(Gato gato);
+    void removeGato(int id);
 
     void listUsuarios();
     void saveUserData ();
