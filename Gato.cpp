@@ -4,14 +4,14 @@
 
 using namespace std;
 
-Gato::Gato() : Animal(), IdUsuario()
+Gato::Gato() : Animal()
 {
     this->calmo = "NONE";
     this->agitado = "NONE";
 }
 
 Gato::Gato(string sexo, string raca, string cor, string castrado, int idade, int idUsuario, string observacoes, string calmo, string agitado)
-: Animal(sexo, raca, cor, castrado, idade, idUsuario, observacoes), IdUsuario()
+: Animal(sexo, raca, cor, castrado, idade, idUsuario, observacoes)
 {
     this->calmo = calmo;
     this->agitado = agitado;
@@ -19,6 +19,7 @@ Gato::Gato(string sexo, string raca, string cor, string castrado, int idade, int
 
 void Gato::cadastrar(int entrada)
 {
+    this->idUsuario = entrada;
     Animal::cadastrar();
     cout << "Eh calmo? ['sim' ou 'nao'] "; cin >> calmo;
     cout << "Eh agitado? ['sim' ou 'nao'] "; cin >> agitado;
@@ -33,4 +34,9 @@ void Gato::print()
     Animal::print();
     cout <<"\tcalmo? " << calmo
          << "\tagitado? " << agitado << endl;
+}
+
+int Gato::getIdUsuario()
+{
+    return idUsuario;
 }

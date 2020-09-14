@@ -13,7 +13,7 @@ void Controle::addUsuario(Usuario usuario)
   this->usuarios.push_back(usuario);
 }
 
-Usuario Controle::findUsuario(string cpf)
+Usuario Controle::findUsuarioCPF(string cpf)
 {
   for (int i = 0; i != usuarios.size(); i++)
   {
@@ -25,6 +25,17 @@ Usuario Controle::findUsuario(string cpf)
   cout << "Usuario nao cadastrado!\n" << endl;
   system("pause");
   system("cls");
+}
+
+Usuario Controle::findUsuarioID(int id)
+{
+  for (int i = 0; i != usuarios.size(); i++)
+  {
+    if (usuarios[i].getIdUsuario() == id)
+    {
+        return usuarios[i];
+    }
+  }
 }
 
 void removeUsuario(Usuario entrada) {

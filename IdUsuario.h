@@ -5,7 +5,7 @@ class IdUsuario
 {
 protected:
     int idUsuario;
-    int getIdUsuario();
+    //int getIdUsuario();
 public:
     IdUsuario();
 };

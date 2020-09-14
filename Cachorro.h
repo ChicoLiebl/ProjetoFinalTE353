@@ -18,6 +18,8 @@ public:
     //~Cachorro();
     void cadastrar(int id);
     void print();
+    int getIdUsuario();
+
     friend std::ostream & operator << (std::ostream &out, const Cachorro & obj) {
       out << obj.idUsuario << "\t" << obj.idAnimal << "\t"
           << obj.sexo << "\t" << obj.raca << "\t"
