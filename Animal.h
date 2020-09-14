@@ -10,13 +10,12 @@ class Animal
 {
 protected:
     int idAnimal;
-    string sexo, raca, cor;
+    string sexo, raca, cor, castrado;
     int idade;
-    bool castrado;
     string observacoes;
 public:
     Animal();
-    Animal(string, string, string, int, bool, int, string);
+    Animal(string, string, string, string, int, int, string);
     //~Animal();
     void cadastrar();
     void print();

@@ -1,0 +1,2 @@
+4	1	1	1	1	1	nao	NONE	grande
+8	5	1	1	1	1	castrado	1	1

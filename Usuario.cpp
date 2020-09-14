@@ -22,8 +22,27 @@ Usuario::Usuario(string nome, string cpf, string telefone, string cidade, string
     this->idade = idade;
 }
 
+void Usuario::iniciar()
+{
+    cout << "Insira seus dados: \n\n";
+    cin.ignore();
+    cout << "Nome: "; getline(cin, this->nome);
+    cout << "CPF: "; getline(cin, this->cpf);
+    cout << "Telefone: "; getline(cin, this->telefone);
+    cout << "Cidade: "; getline(cin, this->cidade);
+    cout << "Bairro: "; getline(cin, this->bairro);
+    cout << "Idade: "; cin >> idade;
+
+    cout << "\nUsuario cadastrado com sucesso!\n" << endl;
+}
+
 int Usuario::getIdUsuario() {
     return idUsuario;
+}
+
+string Usuario::getIdCpf()
+{
+    return cpf;
 }
 
 bool Usuario::isValid() {
@@ -41,4 +60,5 @@ void Usuario::print () {
           "\tCidade: " << cidade <<
           "\tBairro: " << bairro <<
           "\tIdade: " << idade << endl;
+    cout << "\n";
 }

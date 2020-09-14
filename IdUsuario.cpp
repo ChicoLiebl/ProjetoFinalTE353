@@ -6,3 +6,8 @@ IdUsuario::IdUsuario()
 {
     idUsuario = idU++;
 }
+
+int IdUsuario::getIdUsuario()
+{
+    return idUsuario;
+}

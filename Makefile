@@ -1,6 +1,6 @@
 CC      := g++
 INCLUDE := .
-SRCS    := main.cpp Animal.cpp Cachorro.cpp Gato.cpp Controle.cpp Usuario.cpp IdUsuario.cpp
+SRCS    := main.cpp Animal.cpp Cachorro.cpp Gato.cpp Controle.cpp Usuario.cpp IdUsuario.cpp utils.cpp
 
 ifeq ($(OS),Windows_NT)
 	EXE     := main.exe
