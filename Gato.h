@@ -15,6 +15,7 @@ public:
     //~Gato();
     void cadastrar(int id);
     void print();
+    int getIdUsuario();
     
     friend std::ostream & operator << (std::ostream &out, const Gato & obj) {
       out << obj.idUsuario << "\t" << obj.idAnimal << "\t"

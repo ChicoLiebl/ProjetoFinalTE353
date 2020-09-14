@@ -17,8 +17,11 @@ Cachorro::Cachorro(string sexo, string raca, string cor, string castrado, int id
 
 void Cachorro::cadastrar(int entrada)
 {
+    this->idUsuario = entrada;
     Animal::cadastrar();
-    cout << "Porte: "; cin >> porte;
+    cout << "Porte: ";
+    cin.ignore();
+    getline(cin, porte);
     cout << "\n";
 }
 
@@ -26,4 +29,9 @@ void Cachorro::print()
 {
     Animal::print();
     cout << "\tporte: " << porte << endl;
+}
+
+int Cachorro::getIdUsuario()
+{
+    return idUsuario;
 }

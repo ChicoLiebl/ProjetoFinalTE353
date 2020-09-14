@@ -3,6 +3,7 @@
 #include "Gato.h"
 #include "Cachorro.h"
 #include "Controle.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main()
 
   while (1)
   {
-    system("cls");
+    clear_screen();
     cout << "Escolha uma opcao\n\n(1) Entrar\n(2) Cadastrar novo usuario\n" << endl;
     cin >> escolha;
     switch (escolha)
@@ -33,7 +34,7 @@ int main()
       cout << "Digite seu CPF: ";
       cin.ignore();
       getline(cin, cpfEntrada);
-      user = dataBase.findUsuario(cpfEntrada);
+      user = dataBase.findUsuarioCPF(cpfEntrada);
       if(user.getIdCpf() != cpfEntrada) return 0;
       break;
     case 2:
@@ -44,30 +45,31 @@ int main()
     default:
       break;
     }
-    system("cls");
+    clear_screen();
     user.print();
     cout << "Insira a operacao:\n\n(1) Ver animais\n(2) Cadastrar animal\n(3) Ver meus animais cadastrados\n" << endl;
     cin >> escolha;
-    system("cls");
+    clear_screen();
     switch (escolha)
     {
     case 1:
       cout << "Cachorro ou gato?\n\n(1) Cachorro\n(2) Gato" << endl;
       cin >> escolhaAnimal;
       cout << "\nSe interessou por algum? (1) Sim   (2) Nao\n" << endl;
-      if(escolha == 1)  dataBase.listCaes();
-      else if(escolha == 2)  dataBase.listGatos();
+      if(escolhaAnimal == 1)  dataBase.listCaes();
+      else if(escolhaAnimal == 2)  dataBase.listGatos();
       cin >> escolha;
       if(escolha == 1)
       {
         int IdEscolha;
         cout << "Digite o ID do animal: "; cin >> IdEscolha;
-        system("cls");
+        clear_screen();
         cout << "Dados do animal:\n" << endl;
         if(escolhaAnimal == 1) dataBase.findCao(IdEscolha)->print();
         else if(escolhaAnimal == 2) dataBase.findGato(IdEscolha)->print();
-        cout << "Dados do usuario que cadastrou esse animal:\n" << endl;
-        //dataBase.findUsuario(dataBase.findGato(IdEscolha)->getIdUsuario()).print();
+        cout << "\nDados do usuario que cadastrou esse animal:\n" << endl;
+        if(escolhaAnimal == 1) (dataBase.findUsuarioID(dataBase.findGato(IdEscolha)->getIdUsuario())).print();
+        else if(escolhaAnimal == 2) (dataBase.findUsuarioID(dataBase.findCao(IdEscolha)->getIdUsuario())).print();
 
         //dataBase.findUsuario(IdEscolha)->;
       }
