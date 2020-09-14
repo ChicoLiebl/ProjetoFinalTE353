@@ -1,2 +1,2 @@
-0	1	a	a	a	1	
-sim	teste	gra
+0	4	a	a	a	1	
+sim	nada	grande

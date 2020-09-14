@@ -28,7 +28,7 @@ void Cachorro::cadastrar(int entrada)
 void Cachorro::print()
 {
     Animal::print();
-    cout << "\tporte: " << porte << endl;
+    cout << "\tporte: " << porte << "\t(CACHORRO)\n\n" << endl;
 }
 
 int Cachorro::getIdUsuario()
