@@ -3,6 +3,7 @@
 #include "Gato.h"
 #include "Cachorro.h"
 #include "Controle.h"
+#include "utils.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main()
 
   while (1)
   {
-    system("cls");
+    clear_screen();
     cout << "Escolha uma opcao\n\n(1) Entrar\n(2) Cadastrar novo usuario\n" << endl;
     cin >> escolha;
     switch (escolha)
@@ -44,11 +45,11 @@ int main()
     default:
       break;
     }
-    system("cls");
+    clear_screen();
     user.print();
     cout << "Insira a operacao:\n\n(1) Ver animais\n(2) Cadastrar animal\n(3) Ver meus animais cadastrados\n" << endl;
     cin >> escolha;
-    system("cls");
+    clear_screen();
     switch (escolha)
     {
     case 1:
@@ -62,7 +63,7 @@ int main()
       {
         int IdEscolha;
         cout << "Digite o ID do animal: "; cin >> IdEscolha;
-        system("cls");
+        clear_screen();
         cout << "Dados do animal:\n" << endl;
         if(escolhaAnimal == 1) dataBase.findCao(IdEscolha)->print();
         else if(escolhaAnimal == 2) dataBase.findGato(IdEscolha)->print();
