@@ -1,10 +1,11 @@
-0	0	1	1	1	1	
-sim	1	1
-2	1	2	2	2	2	
-sim	2	2
-0	2	3	3	3	3	
-sim	3	3
-0	3	4	4	4	4	
-sim	4	4
-0	4	5	5	5	5	
-sim	5	5
+1	1	Macho	Viralata	Caramelo	5	Sim	Nenhuma	Medio
+2	2	Femea	Buldogue	Marrom	2	Nao	Nenhuma	Pequeno
+3	3	Femea	Beagle	Marrom e Branco	7	Sim	Nenhuma	Medio
+4	4	Macho	Husky Siberiano	Branco	1	Nao	Nenhuma	Grande
+5	5	Femea	Viralata	Branco	2	Sim	Nenhuma	Pequeno
+6	6	Macho	Chihuahua	Marrom	5	Nao	Nenhuma	Pequeno
+6	7	Macho	Golden	Marrom	2	Nao	Nenhuma	Medio
+6	8	Femea	Dogue Alemao	Preto	2	Nao	Nenhuma	Enorme
+
+
+

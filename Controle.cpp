@@ -13,7 +13,7 @@ void Controle::addUsuario(Usuario usuario)
   this->usuarios.push_back(usuario);
 }
 
-Usuario Controle::findUsuarioCPF(int cpf)
+Usuario Controle::findUsuarioCPF(string cpf)
 {
   for (int i = 0; i != usuarios.size(); i++)
   {
@@ -123,7 +123,7 @@ template <class T>
 void Controle::loadData(std::vector<T> & vect, std::string data_file) {
   // allocator<T> A;
   ifstream file;
-  file.open(data_file);
+  file.open(data_file.c_str());
   if (!file.is_open()) return;
 
   while (file.peek() != EOF) {
