@@ -1,0 +1,8 @@
+1	1	Macho	Persa	Branco	12	Sim	Nenhuma	Sim	Nao
+2	2	Femea	Siames	Cinza	5	Sim	Nenhuma	Nao	Sim
+3	3	Macho	Sphynx	Cinza	2	Nao	Nenhuma	Sim	Nao
+3	4	Macho	Persa	Branco	2	Nao	Nenhuma	Nao	Sim
+4	5	Femea	Exotico	Malhado	10	Nao	Nenhuma	Sim	Nao
+5	6	Macho	Persa	Branco	8	Sim	Nenhuma	Nao	Nao
+5	7	Femea	Russo	Preto	4	Nao	Nenhuma	Sim	Nao
+

@@ -13,7 +13,7 @@ void Controle::addUsuario(Usuario usuario)
   this->usuarios.push_back(usuario);
 }
 
-Usuario Controle::findUsuarioCPF(int cpf)
+Usuario Controle::findUsuarioCPF(string cpf)
 {
   for (int i = 0; i != usuarios.size(); i++)
   {

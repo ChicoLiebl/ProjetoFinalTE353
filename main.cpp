@@ -81,7 +81,7 @@ int main()
 
 void entrar()
 {
-  int cpfEntrada;
+  string cpfEntrada;
   cout << "Digite seu CPF: ";
   cin >> cpfEntrada;
   user = dataBase.findUsuarioCPF(cpfEntrada);

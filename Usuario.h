@@ -11,16 +11,17 @@ class Usuario : public IdUsuario
 {
 protected:
     String nome, telefone, cidade, bairro;
-    int idade, cpf;
+    int idade;
+    String cpf;
 public:
     Usuario();
-    Usuario(string, string, string, string, int, int);
+    Usuario(string, string, string, string, int, string);
     //~Usuario();
     void iniciar();
     void print();
     bool isValid();
 
-    int getCpf();
+    String getCpf();
     int getIdUsuario();
 
     friend std::ostream & operator << (std::ostream &out, const Usuario & obj) {

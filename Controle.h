@@ -32,7 +32,7 @@ private:
 public:
     Controle(const char *user_file = "UserData.txt", const char *caes_file = "CaesData.txt", const char *gatos_file = "GatosData.txt");
     
-    Usuario findUsuarioCPF(int cpf);
+    Usuario findUsuarioCPF(string cpf);
     Usuario findUsuarioID(int id);
     void printCaesIdUsuario(int id);
     std::vector<Cachorro>::iterator findCao(int id);
