@@ -1,8 +1,13 @@
 #include "IdUsuario.h"
+#include <iostream>
 
-int idU = 0;
+int IdUsuario::idCounter = 0;
 
 IdUsuario::IdUsuario()
 {
-    idUsuario = idU++;
+    idUsuario = -1;
+}
+
+void IdUsuario::novoIdAutomatico() {
+    idUsuario = idCounter++;
 }

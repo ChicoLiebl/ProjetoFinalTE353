@@ -16,6 +16,7 @@ protected:
 public:
     Animal();
     Animal(string, string, string, string, int, int, string);
+    void novoId();
     //~Animal();
     void cadastrar();
     void print();

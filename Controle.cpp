@@ -113,6 +113,7 @@ void Controle::saveData (std::vector<T> & vect, std::string data_file) {
   ofstream file;
   file.open(data_file.c_str());
   for (int i = 0; i < vect.size(); i++) {
+    vect[i].print();
     file << vect[i];
   }
   file.close();
@@ -124,13 +125,14 @@ void Controle::loadData(std::vector<T> & vect, std::string data_file) {
   ifstream file;
   file.open(data_file);
   if (!file.is_open()) return;
+
   while (file.peek() != EOF) {
-    T *temp = new T();
-    file >> *temp;
-    if (temp->isValid() != true) {
+    T temp;
+    file >> temp;
+    if (temp.isValid() != true) {
       break;
     }
-    vect.push_back(*temp);
+    vect.push_back(temp);
   }
   file.close();
 }
@@ -148,6 +150,9 @@ void Controle::saveUserData () {
 
 void Controle::loadUserData () {
   loadData(usuarios, userDataFile);
+  for (int i = 0; i < usuarios.size(); i++) {
+    usuarios[i].novoIdAutomatico();
+  }
 }
 
 void Controle::listUsuarios () {
@@ -160,6 +165,9 @@ void Controle::saveCaesData () {
 
 void Controle::loadCaesData () {
   loadData(caes, caesDataFile);
+  for (int i = 0; i < caes.size(); i++) {
+    caes[i].novoId();
+  }
 }
 
 void Controle::listCaes () {
@@ -172,6 +180,9 @@ void Controle::saveGatosData () {
 
 void Controle::loadGatosData () {
   loadData(gatos, gatosDataFile);
+  for (int i = 0; i < gatos.size(); i++) {
+    gatos[i].novoId();
+  }
 }
 
 void Controle::listGatos () {

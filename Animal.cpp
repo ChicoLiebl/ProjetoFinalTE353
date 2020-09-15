@@ -6,8 +6,12 @@ using namespace std;
 
 int idA = 0;
 
+void Animal::novoId() {
+    idAnimal = idA++;
+}
+
 Animal::Animal() {
-    this->idAnimal = idA++;
+    this->idAnimal = -1;
     this->sexo = "NONE";
     this->raca = "NONE";
     this->cor = "NONE";
@@ -18,7 +22,7 @@ Animal::Animal() {
 
 Animal::Animal(string sexo, string raca, string cor, string castrado, int idade, int idUsuario, string observacoes)
 {
-    this->idAnimal = idA++;
+    this->idAnimal = -1;
     this->sexo = sexo;
     this->raca = raca;
     this->cor = cor;
@@ -29,6 +33,7 @@ Animal::Animal(string sexo, string raca, string cor, string castrado, int idade,
 
 void Animal::cadastrar()
 {
+    novoId();
     cout << "Insira os dados do animal:\n" << endl;
     cin.ignore();
     cout << "Sexo: "; getline(cin, sexo);
@@ -48,7 +53,7 @@ int Animal::getIdAnimal()
 }
 
 bool Animal::isValid() {
-    if (sexo == "NONE") {
+    if (idade == 0) {
       return false;
     }
     return true;

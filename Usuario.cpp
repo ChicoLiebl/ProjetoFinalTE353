@@ -48,7 +48,7 @@ int Usuario::getCpf()
 }
 
 bool Usuario::isValid() {
-    if (nome == "NONE") {
+    if (idade == 0) {
       return false;
     }
     return true;
