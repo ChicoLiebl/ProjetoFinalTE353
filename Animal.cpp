@@ -39,11 +39,12 @@ void Animal::cadastrar()
     cout << "Sexo: "; getline(cin, sexo);
     cout << "Raca: "; getline(cin, raca);
     cout << "Cor: "; getline(cin, cor);
-    cout << "Idade [meses]: "; cin >> idade;
-    cout << "castrado? ['sim' ou 'nao'] "; cin >> castrado;
+    cout << "Idade [meses]: "; cin >> idade; cin.ignore();
+    cout << "castrado? ['sim' ou 'nao'] "; getline(cin, castrado);
     if(castrado == "sim") castrado = "castrado";
     else castrado == "nao castrado";
     cout << "Observacoes: ";
+    //cin.ignore();
     getline(cin, observacoes);
 }
 
